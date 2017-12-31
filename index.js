@@ -34,10 +34,24 @@ request.get(url, function (error, response, body)
             return s.split('').reverse().join('');
         }
 
+        function errorInDownloadingTheFile(error)
+        {
+            //todo: when episode is expired - email me 'failed'. examine the fileStream. fileStream size = 0 in this case
+            console.log("failed to download the episode");
+        }
+
+        function errorInSavingFileToDisc(error)
+        {
+            //todo: email if failed to save to disc
+            console.log("failed to save episode to disc");
+        }
+
         //download the episode
-        var fileStream = request(soundURL).pipe(fs.createWriteStream(name+'.mp3'));
-        //todo: when episode is expired - email me 'failed'. examine the fileStream. fileStream size = 0 in this case
-        //todo: email if failed to save to disc
+        var fileStream =
+            request(soundURL)
+            .on('error', function(e){errorInDownloadingTheFile(e)})
+            .pipe(fs.createWriteStream(name+'.mp3'))
+            .on('error', function(e){errorInSavingFileToDisc(e)});
         fileStream.on('finish', function ()
         {
             //todo: email me the success
