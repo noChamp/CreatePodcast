@@ -1,6 +1,13 @@
 {
-    "name": "download-new-episode",
-    "version": "1.0.0",
-    "main":"index.js"
+  "name": "create.podcast",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "atob": "^2.0.3",
+    "fs": "0.0.1-security",
+    "request": "^2.83.0"
   }
-  
+}
