@@ -5,6 +5,26 @@ var fs = require('fs');
 
 var url = 'http://chirb.it/8HEdwm' //(invoke from zappier)
 
+/*
+
+left:
+check rss every 15 minutes
+take new address in xml node
+upload episode to self drive
+set the file as 'public'
+calc *downloadable* link
+send to bitly
+get its shorten version
+update rss xml file in G Drive with shorted link 
+
+delet all 'chirbit' from source
+
+how to support episode description?
+use drive node package?
+use bitly node package?
+
+*/
+
 //read the html
 request.get(url, function (error, response, body)
 {
