@@ -11,7 +11,7 @@ const app = express()
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000; // Heroku sets process.env.PORT for me
 app.listen(port, () => console.log('app listening on port ' + port));
 
 //start my app

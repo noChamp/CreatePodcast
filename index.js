@@ -15,8 +15,9 @@ calc *downloadable* link
 send to bitly
 get its shorten version
 update rss xml file in G Drive with shorted link 
+delete the local file so my space in Heroku wont fill up
 
-delet all 'chirbit' from source
+delete all 'chirbit' from source
 
 how to support episode description?
 use drive node package?
