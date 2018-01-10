@@ -81,14 +81,8 @@ function downloadEpisode(soundURL, name)
     });
 }
 
-exports.checkAndCreatePodcast = CheckAndAddToPopdcast;
-
-function CheckAndAddToPopdcast()
+function parseEpisodeHtmlPage(url)
 {
-    console.log("checking for new episode");
-    
-    var url = 'http://chirb.it/8HEdwm' //(invoke from zappier)
-
     //read the html
     request.get(url, function (error, response, body)
     {
@@ -110,4 +104,15 @@ function CheckAndAddToPopdcast()
             console.log("error: " + error + ". statusCode: " + response.statusCode);
         }
     });
+}
+
+exports.checkAndCreatePodcast = CheckAndAddToPopdcast;
+
+function CheckAndAddToPopdcast()
+{
+    console.log("checking for new episode");
+    
+    var url = 'http://chirb.it/8HEdwm' //(invoke from zappier)
+
+    parseEpisodeHtmlPage(url);
 }
